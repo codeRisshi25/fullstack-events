@@ -1,21 +1,20 @@
-@import url('https://fonts.googleapis.com/css?family=Signika+Negative:300,400&display=swap');
+html,
+body,
+section.horizontal {
+  overflow-x: hidden;
+}
 
 * {
   --bg-color-1: #0b0826;
   --bg-color-2: #0049fb;
   --bg-color-3: #b100e8;
-  --border-color:#74C1E3;
+  --border-color: #74c1e3;
 }
 
-
-html, body, section.horizontal {
-  overflow-x: hidden;
-}
-
-body { 
-  font-family: "Signika Negative", sans-serif; 
+body {
+  font-family: "Signika Negative", sans-serif;
   font-weight: 300;
-  
+
   margin: 0;
   padding: 0;
 }
@@ -25,11 +24,19 @@ p {
   padding: 50px 0 50px 50px;
 }
 
-h1 {
+article h2 {
   font-size: 2em;
   font-weight: 400;
   color: #dcdcdcb3;
+  text-align: center;
+}
 
+article p {
+  padding: 0;
+  font-size: 1.2em;
+  font-weight: 300;
+  color: #dcdcdcb3;
+  text-align: center;
 }
 
 section {
@@ -44,32 +51,33 @@ section.horizontal {
 
 section.horizontal .pin-wrap,
 section.horizontal .animation-wrap {
-    display: flex;
-    position: relative;
-    z-index: 1;  
-    height: 100vh;
+  display: flex;
+  position: relative;
+  z-index: 1;
+  height: 100vh;
 }
 
+#pics {
+  flex: 0 0 700px;
+}
 
 section.horizontal .item {
-    position: relative;
-    padding: 0px 50px;
-    padding-bottom: 0px;
-    margin-bottom: 0px;
-    flex: 0 0 550px;
-    height: calc(100vh - 300px);
-    display: flex;
-    align-items: center;
-    line-height: 1.7;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    border-right: 1px solid rgba(0, 0, 0, 0.06);
-    background-color: transparent;
+  position: relative;
+  padding: 80px 60px;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+  flex: 0 0 550px;
+  height: calc(100vh - 300px);
+  display: flex;
+  align-items: center;
+  line-height: 1.7;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border-right: 1px solid rgba(0, 0, 0, 0.06);
+  background-color: transparent;
 }
-
-
 
 /* EVENT SECTION */
 .events-header h1 {
@@ -79,18 +87,17 @@ section.horizontal .item {
   text-align: center;
 }
 
-
-
 /* CARDS */
 
 article {
   --img-scale: 1.001;
-  --title-color: black;
+  --title-color: #4d4d4d;
   --link-icon-translate: -20px;
   --link-icon-opacity: 0;
   position: relative;
-  border-radius: 16px;
+  border-radius: 6px;
   box-shadow: none;
+  border-style: solid;
   background: #1a1a1a;
   transform-origin: center;
   transition: all 0.4s ease-in-out;
@@ -107,8 +114,8 @@ article a::after {
 
 /* basic article elements styling */
 article h2 {
-  margin: 0 0 18px 0;
-  font-family: "Bebas Neue", cursive;
+  padding: 0;
+  margin: 0;
   font-size: 1.9rem;
   letter-spacing: 0.06em;
   color: var(--title-color);
@@ -137,18 +144,17 @@ article a {
   display: inline-flex;
   align-items: center;
   text-decoration: none;
-  color: #28666e;
+  color: #fff;
 }
 
 article a:focus {
-  outline: 1px dotted #28666e;
+  outline: 1px dotted #fff;
 }
 
 article a .icon {
   min-width: 24px;
   width: 24px;
   height: 24px;
-  margin-left: 5px;
   transform: translateX(var(--link-icon-translate));
   opacity: var(--link-icon-opacity);
   transition: all 0.3s;
@@ -157,11 +163,12 @@ article a .icon {
 /* using the has() relational pseudo selector to update our custom properties */
 article:has(:hover, :focus) {
   --img-scale: 1.1;
-  --title-color: #28666e;
+  --title-color: #fff;
   --link-icon-translate: 0;
   --link-icon-opacity: 1;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
-}  
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
 .articles {
   display: grid;
   max-width: 1200px;
@@ -170,10 +177,8 @@ article:has(:hover, :focus) {
   grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
 }
 
-
 /*generel*/
 
 .events-main {
   background: linear-gradient(to right, var(--bg-color-1), var(--bg-color-2));
-  color:#fff;
 }
