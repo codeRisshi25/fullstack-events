@@ -1,231 +1,429 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Events</title>
-    <link rel="stylesheet" href="event.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-  </head>
-  <body>
 
-    <!-- events main section wrapper -->
-    <section class="events-main">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Events</title>
+  <style>
+    /* Original styles for desktop */
+.logo{
+    width: 100px;
+	height: 100px;
+}
+
+header {
+    position: fixed;
+    z-index: 9999;
+    width: 100%;
+    padding: 0.9rem 0;
+    top: 0;
+    left: 0;
+    border-bottom: 1px solid white;
+    background-color: transparent;
+}
+
+body {
+    padding-top: 70px; /* Adjust padding to match the header height */
+}
+
+header nav{
+    width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+ul{
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+
+header ul a{
+    text-decoration: none;
+    color:white;
+    padding: 0 1.5rem;
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: 22px;
+}
+
+/* Media query for smartphone-sized screens */
+@media only screen and (max-width: 768px) {
+    .logo {
+        width: 70px; /* Adjust the width for smaller screens */
+    }
+    
+    header {
+        padding: 0.6rem 0; /* Adjust padding for smaller screens */
+    }
+
+    body {
+        padding-top: 50px; /* Adjust padding for smaller screens */
+    }
+
+    header nav {
+        width: 100%; /* Set width to 100% for smaller screens */
+        padding: 0 1rem; /* Adjust padding for smaller screens */
+    }
+
+    header ul a {
+        padding: 0 1rem; /* Adjust padding for smaller screens */
+    }}
+
+
+  </style>
+  <link rel="stylesheet" href="event.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="zoom-container" id="container">
+      <a href="./index.html"><img src="./logo.png" alt="logo" class="logo"></a>
+      </div>
+      <ul>
+      
+      <li><a href='./fullstack-events/event.html' class="fix1">Home</a></li>
+      <li><a href='./teams/public/indexteam.html' class="fix1">Teams</a></li>
+    </ul>
+  </nav>
+</header>
+  <div id="bg-try" style="z-index: -999; position: absolute;">
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
+      xmlns:svgjs="http://svgjs.dev/svgjs" width="1980" height="5940" preserveAspectRatio="none" viewBox="0 0 1980 5940"
+      rx-webhealth-id="app_svg_#app_div.d-flex#workspace_div.bg-ligh__div.flex-grow-1_div.d-flex#canvas">
+      <g mask="url(&quot;#SvgjsMask1008&quot;)" fill="none"
+        rx-webhealth-id="app_g_#app_div.d-flex#workspace_div.bg-ligh__div.flex-grow-1_div.d-flex#canvas">
+        <path
+          d="M1794.988,5485.019C1949.925,5483.498,2056.048,5341.776,2124.106,5202.579C2183.096,5081.928,2177.514,4946.554,2116.843,4826.74C2048.611,4691.994,1946.024,4553.271,1794.988,4552.633C1643.284,4551.992,1538.232,4689.33,1468.385,4823.999C1404.99,4946.23,1393.487,5085.708,1454.481,5209.155C1523.834,5349.521,1638.431,5486.556,1794.988,5485.019"
+          fill="rgba(213, 213, 213, 0.24)" class="triangle-float3"
+          rx-webhealth-id="app_pa_h_#app_div.d-flex#workspace_div.bg-ligh__div.flex-grow-1_div.d-flex#canvas_1_1_1">
+        </path>
+        <path
+          d="M327.206,3877.483C478.441,3886.913,629.544,3812.502,702.357,3679.614C772.851,3550.957,730.54,3399.531,659.383,3271.239C585.423,3137.893,479.639,3007.178,327.206,3003.239C169.696,2999.169,31.652,3111.013,-36.097,3253.267C-95.851,3378.734,-44.717,3517.283,25.188,3637.391C94.525,3756.523,189.632,3868.905,327.206,3877.483"
+          fill="rgba(213, 213, 213, 0.24)" class="triangle-float2"
+          rx-webhealth-id="app_pa_h_#app_div.d-flex#workspace_div.bg-ligh__div.flex-grow-1_div.d-flex#canvas_1_1_2">
+        </path>
+        <path
+          d="M1402.737,2401.651C1563.253,2405.658,1690.111,2280.505,1768.362,2140.297C1844.331,2004.176,1866.754,1841.261,1791.764,1704.598C1714.038,1562.949,1564.298,1471.978,1402.737,1473.973C1244.361,1475.929,1102.723,1573.298,1030.004,1714.006C962.671,1844.293,997.531,1993.864,1067.419,2122.799C1141.668,2259.779,1246.977,2397.763,1402.737,2401.651"
+          fill="rgba(213, 213, 213, 0.24)" class="triangle-float3"
+          rx-webhealth-id="app_pa_h_#app_div.d-flex#workspace_div.bg-ligh__div.flex-grow-1_div.d-flex#canvas_2_1">
+        </path>
+        <path d="M362.74 3459.47 a620.47 620.47 0 1 0 1240.94 0 a620.47 620.47 0 1 0 -1240.94 0z"
+          fill="rgba(213, 213, 213, 0.24)" class="triangle-float3"
+          rx-webhealth-id="app_pa_h_#app_div.d-flex#workspace_div.bg-ligh__div.flex-grow-1_div.d-flex#canvas_1_2">
+        </path>
+        <path
+          d="M277.867,2804.354C349.785,2804.88,409.758,2759.375,449.782,2699.62C496.204,2630.312,539.974,2545.309,500.652,2471.74C459.946,2395.581,364.016,2372.017,277.867,2377.977C201.946,2383.229,138.142,2431.89,102.758,2499.266C69.866,2561.897,75.04,2635.78,110.255,2697.135C145.641,2758.788,206.783,2803.834,277.867,2804.354"
+          fill="rgba(213, 213, 213, 0.24)" class="triangle-float3"
+          rx-webhealth-id="app_pa_h_#app_div.d-flex#workspace_div.bg-ligh__div.flex-grow-1_div.d-flex#canvas_2_2">
+        </path>
+        <path d="M920.25 5199.21 a409.6 409.6 0 1 0 819.2 0 a409.6 409.6 0 1 0 -819.2 0z"
+          fill="rgba(213, 213, 213, 0.24)" class="triangle-float1"
+          rx-webhealth-id="app_pa_h_#app_div.d-flex#workspace_div.bg-ligh__div.flex-grow-1_div.d-flex#canvas_1"></path>
+        <path d="M-601.03 1904.38 a629.71 629.71 0 1 0 1259.42 0 a629.71 629.71 0 1 0 -1259.42 0z"
+          fill="rgba(213, 213, 213, 0.24)" class="triangle-float1"
+          rx-webhealth-id="app_pa_h_#app_div.d-flex#workspace_div.bg-ligh__div.flex-grow-1_div.d-flex#canvas_2"></path>
+      </g>
+      <defs rx-webhealth-id="app_defs_#app_div.d-flex#workspace_div.bg-ligh__div.flex-grow-1_div.d-flex#canvas">
+        <mask id="SvgjsMask1008"
+          rx-webhealth-id="app_mask_SvgjsMask1008_#app_div.d-flex#workspace_div.bg-ligh__div.flex-grow-1_div.d-flex#canvasSvgjsMask1008">
+          <rect width="1980" height="5940" fill="#ffffff"
+            rx-webhealth-id="app_rec__#app_div.d-flex#workspace_div.bg-ligh__div.flex-grow-1_div.d-flex#canvas_#SvgjsMask1008">
+          </rect>
+        </mask>
+      </defs>
+    </svg>
+  </div>
+  <div id="bg-try" style="z-index: -999; position: absolute;">
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
+      xmlns:svgjs="http://svgjs.dev/svgjs" width="1980" height="100%" preserveAspectRatio="none" viewBox="0 0 1980 250"
+      rx-webhealth-id="app_svg_#app_div.d-flex#workspace_div.bg-ligh__div.flex-grow-1_div.d-flex#canvas">
+      <g mask="url(&quot;#SvgjsMask1027&quot;)" fill="none"
+        rx-webhealth-id="app_g_#app_div.d-flex#workspace_div.bg-ligh__div.flex-grow-1_div.d-flex#canvas">
+        <path d="M-292.53 28.53 a321.06 321.06 0 1 0 642.12 0 a321.06 321.06 0 1 0 -642.12 0z"
+          fill="rgba(213, 213, 213, 0.24)" class="triangle-float3"
+          rx-webhealth-id="app_pa_h_#app_div.d-flex#workspace_div.bg-ligh__div.flex-grow-1_div.d-flex#canvas_1_1_1_1">
+        </path>
+        <path d="M-335.79 71.79 a407.58 407.58 0 1 0 815.16 0 a407.58 407.58 0 1 0 -815.16 0z"
+          fill="rgba(213, 213, 213, 0.24)" class="triangle-float1"
+          rx-webhealth-id="app_pa_h_#app_div.d-flex#workspace_div.bg-ligh__div.flex-grow-1_div.d-flex#canvas_2_1_1_1">
+        </path>
+        <path d="M-459.59 195.59 a655.18 655.18 0 1 0 1310.36 0 a655.18 6 55.18 0 1 0 -1310.36 0z"
+          fill="rgba(213, 213, 213, 0.24)" class="triangle-float2"
+          rx-webhealth-id="app_pa_h_#app_div.d-flex#workspace_div.bg-ligh__div.flex-grow-1_div.d-flex#canvas_1_2_1_1">
+        </path>
+        <path d="M1378.18 -58.18 a147.64 147.64 0 1 0 295.28 0 a147.64 147.64 0 1 0 -295.28 0z"
+          fill="rgba(213, 213, 213, 0.24)" class="triangle-float3"
+          rx-webhealth-id="app_pa_h_#app_div.d-flex#workspace_div.bg-ligh__div.flex-grow-1_div.d-flex#canvas_2_2_1_1">
+        </path>
+        <path d="M1250.05 69.94 a403.89 403.89 0 1 0 807.78 0 a403.89 403.89 0 1 0 -807.78 0z"
+          fill="rgba(213, 213, 213, 0.24)" class="triangle-float1"
+          rx-webhealth-id="app_pa_h_#app_div.d-flex#workspace_div.bg-ligh__div.flex-grow-1_div.d-flex#canvas_1_1_1_2">
+        </path>
+        <path d="M1330.01 -10 a243.99 243.99 0 1 0 487.98 0 a243.99 243.99 0 1 0 -487.98 0z"
+          fill="rgba(213, 213, 213, 0.24)" class="triangle-float2"
+          rx-webhealth-id="app_pa_h_#app_div.d-flex#workspace_div.bg-ligh__div.flex-grow-1_div.d-flex#canvas_2_1_1_2">
+        </path>
+        <path
+          d="M367.347,6268.933C506.091,6270.195,650.389,6234.811,725.155,6117.928C805.24,5992.729,805.373,5830.062,730.021,5701.958C655.662,5575.543,514.005,5510.802,367.347,5509.626C218.409,5508.432,68.806,5567,-5.538,5696.062C-79.772,5824.934,-60.493,5986.876,20.639,6111.52C94.85,6225.531,231.317,6267.696,367.347,6268.933"
+          fill="rgba(213, 213, 213, 0.24)" class="triangle-float2"
+          rx-webhealth-id="app_pa_h_#app_div.d-flex#workspace_div.bg-ligh__div.flex-grow-1_div.d-flex#canvas_1_2_1_2">
+        </path>
+        <path d="M-347.31 5627.32 a430.63 430.63 0 1 0 861.26 0 a430.63 430.63 0 1 0 -861.26 0z"
+          fill="rgba(213, 213, 213, 0.24)" class="triangle-float2"
+          rx-webhealth-id="app_pa_h_#app_div.d-flex#workspace_div.bg-ligh__div.flex-grow-1_div.d-flex#canvas_2_2_1_2">
+        </path>
+        <path d="M-277.85 5557.85 a291.7 291.7 0 1 0 583.4 0 a291.7 291.7 0 1 0 -583.4 0z"
+          fill="rgba(213, 213, 213, 0.24)" class="triangle-float1"
+          rx-webhealth-id="app_pa_h_#app_div.d-flex#workspace_div.bg-ligh__div.flex-grow-1_div.d-flex#canvas_1_1_2">
+        </path>
+        <path
+          d="M1909.827,6308.514C2053.398,6310.448,2150.674,6174.246,2213.315,6045.046C2267.219,5933.865,2264.553,5807.663,2205.198,5699.294C2143.163,5586.033,2038.906,5494.811,1909.827,5490.945C1774.615,5486.895,1645.517,5561.128,1582.134,5680.633C1522.13,5793.766,1560.928,5923.526,1620.179,6037.055C1685.798,6162.786,1768.016,6306.603,1909.827,6308.514"
+          fill="rgba(213, 213, 213, 0.24)" class="triangle-float1"
+          rx-webhealth-id="app_pa_h_#app_div.d-flex#workspace_div.bg-ligh__div.flex-grow-1_div.d-flex#canvas_2_1_2">
+        </path>
+        <path
+          d="M2050.893,6608.836C2255.61,6620.673,2436.619,6469.573,2524.208,6284.162C2601.228,6121.124,2533.451,5940.43,2439.298,5786.648C2350.459,5641.545,2220.859,5518.76,2050.893,5511.088C1867.932,5502.829,1683.031,5587.137,1596.606,5748.61C1513.927,5903.085,1581.932,6079.478,1663.752,6234.409C1753.608,6404.558,1858.796,6597.729,2050.893,6608.836"
+          fill="rgba(213, 213, 213, 0.24)" class="triangle-float2"
+          rx-webhealth-id="app_pa_h_#app_div.d-flex#workspace_div.bg-ligh__div.flex-grow-1_div.d-flex#canvas_1_2_2">
+        </path>
+        <path
+          d="M2063.25,6556.254C2248.066,6547.219,2411.826,6437.971,2497.475,6273.95C2577.195,6121.282,2540.367,5946.418,2461.702,5793.204C2373.528,5621.468,2256.29,5426.399,2063.25,5428.215C1871.728,5430.017,1773.27,5634.67,1677.575,5800.58C1581.987,5966.304,1461.713,6149.932,1548.683,6320.336C1640.618,6500.47,1861.253,6566.129,2063.25,6556.254"
+          fill="rgba(213, 213, 213, 0.24)" class="triangle-float3"
+          rx-webhealth-id="app_pa_h_#app_div.d-flex#workspace_div.bg-ligh__div.flex-grow-1_div.d-flex#canvas_2_2_2">
+        </path>
+      </g>
+      <defs rx-webhealth-id="app_defs_#app_div.d-flex#workspace_div.bg-ligh__div.flex-grow-1_div.d-flex#canvas">
+        <mask id="SvgjsMask1027"
+          rx-webhealth-id="app_mask_SvgjsMask1027_#app_div.d-flex#workspace_div.bg-ligh__div.flex-grow-1_div.d-flex#canvasSvgjsMask1027">
+          <rect width="1980" height="5940" fill="#ffffff"
+            rx-webhealth-id="app_rec__#app_div.d-flex#workspace_div.bg-ligh__div.flex-grow-1_div.d-flex#canvas_#SvgjsMask1027">
+          </rect>
+        </mask>
+      </defs>
+    </svg>
+  </div>
+  <!-- events main section wrapper -->
+  <section class="events-main">
     <section class="events-header">
       <h1 class="events-header-text">EVENTS</h1>
     </section>
 
     <!-- events container 1-->
     <section class="horizontal">
+
       <div class="pin-wrap">
         <div class="animation-wrap to-right">
           <div class="item">
             <article>
               <div class="article-wrapper">
-                  <figure>
-                    <img src="./events-assets/club-carnival.jpg" alt="" />
-                  </figure>
-                  <div class="article-body">
-                    <h2>Club Carnival</h2>
-                    <p>
-                      Club Carnival is an event that aims to introduce the
-                      students to the various clubs and chapters of the college.
-                      The event will provide an insight into the activities and
-                      opportunities that the clubs offer to the students.
-                    </p>
-                  </div>
+                <figure>
+                  <img src="./events-assets/club-carnival.jpg" alt="" />
+                </figure>
+                <div class="article-body">
+                  <h2>Club Carnival</h2>
+                  <p>
+                    Club Carnival is an event that aims to introduce the
+                    students to the various clubs and chapters of the college.
+                    The event provided an insight into the activities and
+                    opportunities that our Full Stack clubs offer to the students.
+                  </p>
                 </div>
-          </article>
+              </div>
+            </article>
           </div>
           <div class="item" id="pics">
             <article>
               <div class="article-wrapper">
-                  <figure>
-                    <img src="./events-assets/club-carnival-2.jpg" alt="" />
-                  </figure>
-                </div>
-          </article>
+                <figure>
+                  <img src="./events-assets/club-carnival-2.jpg" alt="" />
+                </figure>
+              </div>
+            </article>
           </div>
           <div class="item" id="pics">
             <article>
               <div class="article-wrapper">
-                  <figure>
-                    <img src="./events-assets/club-carnival-3.jpg" alt="" />
-                  </figure>
-                </div>
-          </article>
-          </div>   
+                <figure>
+                  <img src="./events-assets/club-carnival-3.jpg" alt="" />
+                </figure>
+              </div>
+            </article>
+          </div>
           <div class="item" id="pics">
             <article>
               <div class="article-wrapper">
-                  <figure>
-                    <img src="events-assets/club-carnival-4.jpg" alt="" />
-                  </figure>
-                </div>
-          </article>
-          </div>   
+                <figure>
+                  <img src="events-assets/club-carnival-4.jpg" alt="" />
+                </figure>
+              </div>
+            </article>
           </div>
-         </section>
-         
+        </div>
+    </section>
     <section class="horizontal">
       <div class="pin-wrap">
         <div class="animation-wrap to-left">
           <div class="item" id="pics">
             <article>
               <div class="article-wrapper">
-                  <figure>
-                    <img src="./events-assets/linkedin-2.png" alt="" />
-                  </figure>
-                </div>
-          </article>
+                <figure>
+                  <img src="./events-assets/linkedin-2.png" alt="" />
+                </figure>
+              </div>
+            </article>
           </div>
           <div class="item" id="pics">
             <article>
               <div class="article-wrapper">
-                  <figure>
-                    <img src="./events-assets/linkedin-3.png" alt="" />
-                  </figure>
-                </div>
-          </article>
-          </div>   
+                <figure>
+                  <img src="./events-assets/linkedin-3.png" alt="" />
+                </figure>
+              </div>
+            </article>
+          </div>
           <div class="item" id="pics">
             <article>
               <div class="article-wrapper">
-                  <figure>
-                    <img src="events-assets/linkedin-4.png" alt="" />
-                  </figure>
-                </div>
-          </article>
-          </div>  
+                <figure>
+                  <img src="events-assets/linkedin-4.png" alt="" />
+                </figure>
+              </div>
+            </article>
+          </div>
           <div class="item">
             <article>
               <div class="article-wrapper">
-                  <figure>
-                    <img src="./events-assets/linkedin-1.jpeg" alt="" />
-                  </figure>
-                  <div class="article-body">
-                    <h2>Delve In</h2>
-                    <p>
-                      Delve In is a series of webinars that aims to provide
-                      insights into the various fields of technology and
-                      entrepreneurship. The series will feature speakers from
-                      different domains who will share their experiences and
-                      knowledge with the participants.
-                    </p>
-                  </div>
+                <figure>
+                  <img src="./events-assets/linkedin-1.jpeg" alt="" />
+                </figure>
+                <div class="article-body">
+                  <h2>Delve In</h2>
+                  <p>
+                    An exclusive LinkedIn Masterclass, meticulously crafted by the Fullstack BU team. Led by the
+                    esteemed Dr Sonal Kukreja, our chief guest speaker, the event served as a balefire of insight for
+                    students seeking to enhance their career prospects. With a turnout of over 120 enthusiastic
+                    participants, the masterclass seamlessly harmonized informative sessions with engaging activities,
+                    including a thrilling Mentimeter quiz where winners were rewarded with coveted goodies.
+                  </p>
                 </div>
-          </article>
-          </div> 
+              </div>
+            </article>
           </div>
-         </section>
+        </div>
+    </section>
     <section class="horizontal">
-          <div class="pin-wrap">
-            <div class="animation-wrap to-right">
-              <div class="item">
-                <article>
-                  <div class="article-wrapper">
-                      <figure>
-                        <img src="./events-assets/9sgpa.png" alt="" />
-                      </figure>
-                      <div class="article-body">
-                        <h2>9 sgpa</h2>
-                        <p>
-                          9 sgpa is an event that aims to introduce the
-                          students to the various clubs and chapters of the college.
-                          The event will provide an insight into the activities and
-                          opportunities that the clubs offer to the students.
-                        </p>
-                      </div>
-                    </div>
-              </article>
+      <div class="pin-wrap">
+        <div class="animation-wrap to-right">
+          <div class="item" id="pics">
+            <article>
+              <div class="article-wrapper">
+                <figure>
+                  <img src="./events-assets/9sgpa.png" alt="" />
+                </figure>
+                <div class="article-body">
+                  <h2>9 SGPA</h2>
+                  <p>
+                    The "9 SGPA" event held on October 9, 2023, by the Full Stack Club provided students with actionable
+                    approaches to enhance grades, personality, and attendance. Attendees learned persuasive time
+                    management, syllabus understanding, and regular practice techniques. They also discovered the
+                    importance of consistent performance, active participation, and utilizing feedback to maintain
+                    excellent grades. Developing a strong personality through critical thinking, leadership, and
+                    teamwork was emphasized, alongside ensuring punctuality and attendance tracking. 
               </div>
-              <div class="item">
-                <article>
-                  <div class="article-wrapper">
-                      <figure>
-                        <img src="./events-assets/9sgpa-2.jpg" alt="" />
-                      </figure>
-                    </div>
-              </article>
+            </article>
+          </div>
+          <div class="item" id="pics">
+            <article>
+              <div class="article-wrapper">
+                <figure>
+                  <img src="./events-assets/9sgpa-2.jpg" alt="" />
+                </figure>
               </div>
-              <div class="item">
-                <article>
-                  <div class="article-wrapper">
-                      <figure>
-                        <img src="./events-assets/9sgpa-3.jpg" alt="" />
-                      </figure>
-                    </div>
-              </article>
-              </div>   
-              <div class="item">
-                <article>
-                  <div class="article-wrapper">
-                      <figure>
-                        <img src="events-assets/club-carnival-4.jpg" alt="" />
-                      </figure>
-                    </div>
-              </article>
-              </div>   
+            </article>
+          </div>
+          <div class="item" id="pics">
+            <article>
+              <div class="article-wrapper">
+                <figure>
+                  <img src="./events-assets/9sgpa-3.jpg" alt="" />
+                </figure>
               </div>
-             </section>
-             
+            </article>
+          </div>
+          <div class="item" id="pics">
+            <article>
+              <div class="article-wrapper">
+                <figure>
+                  <img src="events-assets/9sgpa-1.png" alt="" />
+                </figure>
+              </div>
+            </article>
+          </div>
+        </div>
+    </section>
     <section class="horizontal">
-          <div class="pin-wrap">
-            <div class="animation-wrap to-left">
-              <div class="item">
-                <article>
-                  <div class="article-wrapper">
-                      <figure>
-                        <img src="./events-assets/linkedin-2.png" alt="" />
-                      </figure>
-                    </div>
-              </article>
+      <div class="pin-wrap">
+        <div class="animation-wrap to-left">
+          <div class="item" id="pics">
+            <article>
+              <div class="article-wrapper">
+                <figure>
+                  <img src="./events-assets/webdev-1.jpg" alt="tried image" />
+                </figure>
               </div>
-              <div class="item">
-                <article>
-                  <div class="article-wrapper">
-                      <figure>
-                        <img src="./events-assets/linkedin-3.png" alt="" />
-                      </figure>
-                    </div>
-              </article>
-              </div>   
-              <div class="item">
-                <article>
-                  <div class="article-wrapper">
-                      <figure>
-                        <img src="events-assets/linkedin-4.png" alt="" />
-                      </figure>
-                    </div>
-              </article>
-              </div>  
-              <div class="item">
-                <article>
-                  <div class="article-wrapper">
-                      <figure>
-                        <img src="./events-assets/linkedin-1.jpeg" alt="" />
-                      </figure>
-                      <div class="article-body">
-                        <h2>Delve In</h2>
-                        <p>
-                          Delve In is a series of webinars that aims to provide
-                          insights into the various fields of technology and
-                          entrepreneurship. The series will feature speakers from
-                          different domains who will share their experiences and
-                          knowledge with the participants.
-                        </p>
-                      </div>
-                    </div>
-              </article>
-              </div> 
+            </article>
+          </div>
+          <div class="item" id="pics">
+            <article>
+              <div class="article-wrapper">
+                <figure>
+                  <img src="./events-assets/webdev-3.jpg" alt="" />
+                </figure>
               </div>
-             </section>
-         </section>
-    <script src="event.js"></script>
-  </body>
+            </article>
+          </div>
+          <div class="item" id="pics">
+            <article>
+              <div class="article-wrapper">
+                <figure>
+                  <img src="events-assets/webdev-2.jpg" alt="" />
+                </figure>
+              </div>
+            </article>
+          </div>
+          <div class="item">
+            <article>
+              <div class="article-wrapper">
+                <figure>
+                  <img src="./events-assets/webdeb-workshop.jpg" alt="" />
+                </figure>
+                <div class="article-body">
+                  <h2>Web Dev Workshop</h2>
+                  <p>
+                    We also organised a very interactive CSS and HTML group study sessions on 27th and 28th January.
+                    Tried to attune students to the growing concepts of CSS and HTML industries.
+                    Students actively participated throughout these workshop, our tech team made sure that the students
+                    are staying updated with industry trends and ensured content related was totally
+                    relevant.Participants were encouraged to ask questions and be actively engaged through the teaching
+                    process
+                  </p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+    </section>
+  </section>
+  <script src="event.js"></script>
+</body>
+
 </html>
